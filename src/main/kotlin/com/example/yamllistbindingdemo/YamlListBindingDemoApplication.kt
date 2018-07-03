@@ -14,7 +14,10 @@ fun main(args: Array<String>) {
     runApplication<YamlListBindingDemoApplication>(*args)
 }
 
-data class Printer(val deviceNo: String, val key: String)
+class Printer {
+    var deviceNo: String? = null
+    var key: String? = null
+}
 
 @Component
 @ConfigurationProperties
@@ -24,7 +27,6 @@ class PrinterProperties {
 
 @Component
 class Runner(val printerProperties: PrinterProperties) : ApplicationRunner {
-
 
     override fun run(args: ApplicationArguments?) {
         println(printerProperties.printers.size)
